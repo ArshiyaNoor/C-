@@ -1,0 +1,6 @@
+modules = ["python-3.11", "c-cpp"]
+
+# Automates dependency resolution and runs standard Linux g++ compilation
+init = "pip install -r requirements.txt && g++ -O3 -Wall -shared -std=c++14 -fPIC $(python3 -m pybind11 --includes) core.cpp -o time_core$(python3-config --extension-suffix)"
+
+run = "streamlit run app.py --server.port=8080 --server.address=0.0.0.0"
